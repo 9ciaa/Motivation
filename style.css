@@ -1,159 +1,69 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html, body {
   height: 100%;
   width: 100%;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Inter', sans-serif;
 }
-
 body {
   background: linear-gradient(135deg, #E3F2FD 0%, #FFF9C4 50%, #E8F5E8 100%);
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
 }
-
 .container {
-  width: 100%;
   max-width: 800px;
   text-align: center;
 }
-
 .title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   color: #1976D2;
-  text-shadow: 2px 2px 4px rgba(25, 118, 210, 0.3);
-  margin-bottom: 3rem;
-  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
 }
-
 .quote-section {
   background: transparent;
   border-radius: 24px;
   padding: 3rem 2rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
 }
-
 .quote-container {
-  margin-bottom: 2.5rem;
   min-height: 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
 #quote-text {
   font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-  line-height: 1.6;
   color: #333;
-  text-shadow: 1px 1px 2px rgba(25, 118, 210, 0.2);
-  font-weight: 400;
+  text-shadow: 1px 1px 2px rgba(29, 78, 216, 0.5); /* light blue shadow */
   margin-bottom: 1rem;
-  max-width: 600px;
 }
-
 #quote-author {
   font-size: clamp(0.9rem, 2vw, 1.1rem);
   color: #1976D2;
   font-weight: 600;
-  text-shadow: 1px 1px 2px rgba(25, 118, 210, 0.2);
   font-style: italic;
 }
-
 .motivation-button {
   background: linear-gradient(135deg, #42A5F5, #1976D2);
   color: white;
   border: none;
   padding: 1rem 2.5rem;
   font-size: clamp(1rem, 2vw, 1.2rem);
-  font-weight: 600;
-  border-radius: 50px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 20px rgba(25, 118, 210, 0.3);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  font-family: inherit;
-}
-
-.motivation-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(25, 118, 210, 0.4);
-  background: linear-gradient(135deg, #1976D2, #1565C0);
-}
-
-.motivation-button:active {
-  transform: translateY(0);
-  box-shadow: 0 6px 15px rgba(25, 118, 210, 0.3);
-}
-
-.motivation-button:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.loading {
-  margin-top: 1rem;
-}
-
-.spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid rgba(25, 118, 210, 0.2);
-  border-left: 4px solid #1976D2;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 0 auto;
-}
-
-.hidden {
-  display: none;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-
-
-.motivation-button {
-  background: linear-gradient(135deg, #42A5F5, #1976D2);
-  color: white;
-  border: none;
-  padding: 1rem 2.5rem;
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  font-weight: 600;
+  transition: all 0.4s ease;
   border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), 
-              transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55),
-              background 0.4s ease,
-              opacity 0.5s ease;
-  box-shadow: 0 8px 20px rgba(25, 118, 210, 0.3);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  font-family: inherit;
-  position: relative;
-  overflow: hidden;
 }
-
 .motivation-button.upgrading {
   animation: squeezeAndExpand 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   background: linear-gradient(135deg, #FFD54F, #FF8F00);
-  box-shadow: 0 8px 20px rgba(255, 143, 0, 0.3);
 }
-
 @keyframes squeezeAndExpand {
   0% {
     transform: scale(1);
@@ -171,39 +81,21 @@ body {
     transform: scale(1);
   }
 }
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .quote-section {
-    padding: 2rem 1.5rem;
-    margin: 1rem;
-  }
-  
-  .title {
-    margin-bottom: 2rem;
-  }
-  
-  .quote-container {
-    min-height: 100px;
-  }
-  
-  .motivation-button {
-    padding: 0.875rem 2rem;
-  }
+.loading {
+  margin-top: 1rem;
 }
-
-@media (max-width: 480px) {
-  body {
-    padding: 10px;
-  }
-  
-  .quote-section {
-    padding: 1.5rem 1rem;
-  }
-  
-  .motivation-button {
-    padding: 0.75rem 1.5rem;
-    width: 100%;
-    max-width: 280px;
-  }
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(25, 118, 210, 0.2);
+  border-left: 4px solid #1976D2;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+.hidden {
+  display: none;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
